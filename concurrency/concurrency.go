@@ -50,6 +50,7 @@ func CheckWebsites(wc WebsiteChecker, urls []string) map[string]bool {
         // Recieve data from the channel
         // <-resultChannel is the recieve expressions, which assigns a value recieved from the channel to a variable
         // The two operands are now reversed, the channel on the right, and variable assigned on left
+        // This is a blocking call as we are waiting for a value
         r := <-resultChannel
         results[r.string] = r.bool
     }
